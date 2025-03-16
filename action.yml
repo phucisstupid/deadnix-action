@@ -1,4 +1,4 @@
-name: 'deadnix-action'
+name: 'nix-deadnix-action'
 description: 'Find and remove unused Nix code, then commit and push the changes'
 inputs:
   flags:
