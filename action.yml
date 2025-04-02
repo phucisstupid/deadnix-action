@@ -24,8 +24,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Run deadnix
-      run: nix run nixpkgs#deadnix -- ${{ inputs.flags }} ${{ inputs.directory }}
+    - name: Run deadnix (excluding _sources)
+      run: nix run nixpkgs#deadnix -- ${{ inputs.flags }} --exclude ./_sources ${{ inputs.directory }}
       shell: bash
       id: deadnix
 
