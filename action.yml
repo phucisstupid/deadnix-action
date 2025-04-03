@@ -25,7 +25,7 @@ runs:
   using: 'composite'
   steps:
     - name: Run deadnix (excluding _sources)
-      run: nix run nixpkgs#deadnix -- ${{ inputs.flags }} ${{ inputs.directory }}  --exclude ./_sources
+      run: nix run nixpkgs#deadnix -- ${{ inputs.flags }} ${{ inputs.directory }}  --exclude _sources
       shell: bash
       id: deadnix
 
