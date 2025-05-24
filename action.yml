@@ -45,6 +45,8 @@ runs:
 
     - name: Commit and push changes or open PR
       shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
         git config --global user.name "${{ inputs.author }}"
         git config --global user.email "${{ inputs.author }}"
