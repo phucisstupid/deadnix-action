@@ -13,22 +13,19 @@
 To use this action in your GitHub repository, add it to a workflow file:
 
 ```yaml
-name: Deadnix Check
+name: Dead code analysis
 
 on:
+  workflow_dispatch:
   push:
-  pull_request:
 
 jobs:
   deadnix:
-    name: Run deadnix
+    name: Deadnix
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
-      - uses: cachix/cachix-action@v14
-        with:
-          name: deadnix
+      - uses: actions/checkout@main
+      - uses: cachix/install-nix-action@v31
       - uses: phucleeuwu/deadnix-action@v3
 ```
 
