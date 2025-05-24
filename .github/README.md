@@ -29,7 +29,7 @@ jobs:
       - uses: cachix/cachix-action@v14
         with:
           name: deadnix
-      - uses: phucleeuwu/deadnix-action@v1
+      - uses: phucleeuwu/deadnix-action@v3
 ```
 
 ## ⚙️ Inputs
@@ -46,10 +46,9 @@ jobs:
 If you want to create a **pull request** instead of committing directly:
 
 ```yaml
-- uses: phucleeuwu/deadnix-action@v1
+- uses: phucleeuwu/deadnix-action@v3
   with:
-    create_pr: true
-    commit_message: "Remove dead Nix code using deadnix"
+    open_pr: true
 ```
 
 ## 📝 License
