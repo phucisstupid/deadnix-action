@@ -1,5 +1,6 @@
 name: 'nix-deadnix-action'
 description: 'Find and remove unused Nix code, then commit and push the changes'
+
 inputs:
   flags:
     description: 'Command-line flags to deadnix'
@@ -21,22 +22,32 @@ inputs:
     description: 'Commit message'
     required: false
     default: 'Remove dead Nix code'
+  exclude:
+    description: 'Path to exclude from deadnix scanning (optional)'
+    required: false
+
 runs:
   using: 'composite'
   steps:
-    - name: Run deadnix (excluding _sources)
-      run: nix run nixpkgs#deadnix -- ${{ inputs.flags }} ${{ inputs.directory }}  --exclude _sources
+    - name: Run deadnix
       shell: bash
       id: deadnix
+      run: |
+        EXCLUDE_OPTION=""
+        if [ -n "${{ inputs.exclude }}" ]; then
+          EXCLUDE_OPTION="--exclude ${{ inputs.exclude }}"
+        fi
+        nix run nixpkgs#deadnix -- ${{ inputs.flags }} ${{ inputs.directory }} $EXCLUDE_OPTION
 
     - name: Commit and push changes
+      shell: bash
       run: |
         git config --global user.name "${{ inputs.author }}"
         git config --global user.email "${{ inputs.author }}"
         git add .
         git commit -m "${{ inputs.commit_message }}" || echo "No changes to commit"
         git push origin HEAD:${{ github.ref_name }}
-      shell: bash
+
 branding:
   icon: 'upload-cloud'
   color: 'blue'
