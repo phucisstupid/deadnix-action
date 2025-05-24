@@ -21,7 +21,7 @@ inputs:
   commit_message:
     description: 'Commit message'
     required: false
-    default: 'Chore: Remove dead Nix code'
+    default: 'Chore: Automated dead code cleanup'
   exclude:
     description: 'Path to exclude from deadnix scanning (optional)'
     required: false
