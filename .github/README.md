@@ -43,7 +43,7 @@ jobs:
 If you want to create a **pull request** instead of committing directly:
 
 ```yaml
-- uses: phucleeuwu/deadnix-action@v3
+- uses: phucleeuwu/deadnix-action@v2
   with:
     open_pr: true
 ```
