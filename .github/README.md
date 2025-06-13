@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: phucleeuwu/deadnix-action@v3
+      - uses: phucleeuwu/deadnix-action@v1
 ```
 
 ## ⚙️ Inputs
