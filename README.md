@@ -13,23 +13,20 @@
 To use this action in your GitHub repository, add it to a workflow file:
 
 ```yaml
-name: Deadnix Check
+name: Dead code analysis
 
 on:
+  workflow_dispatch:
   push:
-  pull_request:
 
 jobs:
   deadnix:
-    name: Run deadnix
+    name: Deadnix
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v25
-      - uses: cachix/cachix-action@v14
-        with:
-          name: deadnix
-      - uses: phucleeuwu/deadnix-action@v1
+      - uses: actions/checkout@main
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: phucleeuwu/deadnix-action@v3
 ```
 
 ## ⚙️ Inputs
@@ -46,10 +43,9 @@ jobs:
 If you want to create a **pull request** instead of committing directly:
 
 ```yaml
-- uses: phucleeuwu/deadnix-action@v1
+- uses: phucleeuwu/deadnix-action@v3
   with:
-    create_pr: true
-    commit_message: "Remove dead Nix code using deadnix"
+    open_pr: true
 ```
 
 ## 📝 License
