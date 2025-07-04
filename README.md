@@ -53,4 +53,4 @@ This project is licensed under the MIT License.
 
 ---
 
-Made with ❤️ by [phucleeuwu](https://github.com/phucisstupid)
+Made with ❤️ by [phucisstupid](https://github.com/phucisstupid)
