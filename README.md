@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: phucleeuwu/deadnix-action@v1
+      - uses: phucisstupid/deadnix-action@v1
 ```
 
 ## ⚙️ Inputs
@@ -43,7 +43,7 @@ jobs:
 If you want to create a **pull request** instead of committing directly:
 
 ```yaml
-- uses: phucleeuwu/deadnix-action@v1
+- uses: phucisstupid/deadnix-action@v1
   with:
     open_pr: true
 ```
@@ -53,4 +53,4 @@ This project is licensed under the MIT License.
 
 ---
 
-Made with ❤️ by [phucleeuwu](https://github.com/phucleeuwu)
+Made with ❤️ by [phucleeuwu](https://github.com/phucisstupid)
